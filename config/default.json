@@ -1,0 +1,5 @@
+{
+    "db" : "mongodb://localhost/ChatApp",
+    "port" : "3000",
+    "env" :"dev"
+}
