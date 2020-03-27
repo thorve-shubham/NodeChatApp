@@ -143,7 +143,18 @@ function signUp(req,res){
 }
 
 function logOut(req,res){
-
+    Auth.findOneAndRemove({userId : req.user.userId},(err,result)=>{
+        if(err){
+            winLog.logError(err.message,"userController : logOut");
+            res.send(generateResponse(true,503,err.message,null));
+        }else if(result == null || result == undefined || result == ""){
+            winLog.logError("Already logged out or invalid userID stored in token","userController : logOut");
+            res.send(generateResponse(true,503,"Already logged out or invalid userID stored in token",null));
+        }else{
+            winLog.logInfo("Logged out userID "+req.user.userId,"userController : logOut");
+            res.send(generateResponse(false,200,null,"User Logged out successfully"));
+        }
+    });
 }
 
 function validateUserInput(req){
@@ -184,10 +195,9 @@ function createUser(req){
                     console.log(user.password);
                     user.save((err,result)=>{
                         if (err) {
-                            console.log(err)
-                            winLog.logError(err.message, 'userController: createUser')
-                            let Response = generateResponse(true,500,'Failed to create new User', null)
-                            reject(Response)
+                            winLog.logError(err.message, 'userController: createUser');
+                            let Response = generateResponse(true,500,'Failed to create new User', null);
+                            reject(Response);
                         } else {
                             let userObj = user.toObject();
                             resolve(userObj);
@@ -202,6 +212,26 @@ function createUser(req){
     })
 }
 
+function getAllUsers(req,res){
+    User.find().select('-_id-__v')
+        .exec((err,Users)=>{
+            if(err){
+                winLog.logError(err.message, 'userController: getAllUsers');
+                let Response = generateResponse(true,500,err.message, null);
+                res.send(Response)
+            }else if(Users == undefined || Users == null || Users == ""){
+                winLog.logError("No Users Found", 'userController: getAllUsers');
+                let Response = generateResponse(true,500,"No Users Found", null);
+                res.send(Response);
+            }else{
+                winLog.logInfo("No Found", 'userController: getAllUsers');
+                let Response = generateResponse(true,200,null,Users);
+                res.send(Response);
+            }
+        });
+}
+
 module.exports.logOut = logOut;
 module.exports.signUp = signUp;
 module.exports.logIn = logIn;
+module.exports.getAllUsers = getAllUsers;

@@ -19,6 +19,7 @@
     "moment": "^2.24.0",
     "mongoose": "^5.9.6",
     "shortid": "^2.2.15",
+    "socket.io": "^2.3.0",
     "winston": "^3.2.1"
   }
 }

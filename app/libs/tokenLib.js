@@ -12,6 +12,7 @@ function generateToken(data,cb){
             token : jwt.sign(info,config.get('key')),
             secret : config.get('key')
         } 
+        console.log(data);
         cb(null,tokenInfo);
     }
     catch(err){
@@ -20,4 +21,14 @@ function generateToken(data,cb){
     
 }
 
+function comapreToken(token,cb){
+    try{
+        const decodedToken = jwt.verify(token,config.get('key'));
+        cb(null,decodedToken)
+    }catch(err){
+        cb(err,null)
+    }
+}
+
 module.exports.generateToken =generateToken;
+module.exports.comapreToken =comapreToken;
