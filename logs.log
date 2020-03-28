@@ -38,3 +38,11 @@
 {"timestamp":"2020-03-26T11:28:13+05:30","message":"No Found","origin":"userController: getAllUsers","level":"info"}
 {"timestamp":"2020-03-26T12:51:07+05:30","message":"User found successfully","origin":"userController : findUser","level":"info"}
 {"timestamp":"2020-03-27T11:07:09+05:30","message":"User found successfully","origin":"userController : findUser","level":"info"}
+{"timestamp":"2020-03-27T11:56:02+05:30","message":"Auth Token is not valid","origin":"Middleware : auth","level":"error"}
+{"timestamp":"2020-03-27T11:56:22+05:30","message":"Auth Token is not valid","origin":"Middleware : auth","level":"error"}
+{"timestamp":"2020-03-27T11:56:38+05:30","message":"Auth Token is not valid","origin":"Middleware : auth","level":"error"}
+{"timestamp":"2020-03-27T11:58:11+05:30","message":"Auth Token is not valid","origin":"Middleware : auth","level":"error"}
+{"timestamp":"2020-03-27T11:58:48+05:30","message":"User found successfully","origin":"userController : findUser","level":"info"}
+{"timestamp":"2020-03-28T11:59:39+05:30","message":"User found successfully","origin":"userController : findUser","level":"info"}
+{"timestamp":"2020-03-28T12:00:01+05:30","message":"User found successfully","origin":"userController : findUser","level":"info"}
+{"timestamp":"2020-03-28T12:01:47+05:30","message":"User found successfully","origin":"userController : findUser","level":"info"}
