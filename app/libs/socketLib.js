@@ -95,7 +95,8 @@ eventEmitter.on('save-chat',(data)=>{
         receiverName: data.receiverName,
         receiverId: data.receiverId,
         message: data.message,
-        chatRoom: data.chatRoom
+        chatRoom: data.chatRoom,
+        seen : false
     });
 
     chatObj.save((err,result)=>{

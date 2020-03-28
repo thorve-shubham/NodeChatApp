@@ -11,7 +11,8 @@ let chatSchema = new Schema({
   receiverName: { type: String, default: '' },
   receiverId: { type: String, default: '' },
   message: { type: String, default: '' },
-  chatRoom: { type: String, default: '' }
+  chatRoom: { type: String, default: '' },
+  seen: { type: Boolean, default: false }
 
 })
 
