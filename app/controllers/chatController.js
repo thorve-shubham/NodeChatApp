@@ -303,7 +303,7 @@ let findUnSeenChat = (req, res) => {
         findQuery['senderId'] = req.query.senderId
       }
 
-      ChatModel.find(findQuery)
+      Chat.find(findQuery)
         .select('-_id -__v')
         .skip(parseInt(req.query.skip) || 0)
         .lean()

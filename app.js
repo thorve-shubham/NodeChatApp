@@ -14,6 +14,7 @@ const globalErrorHandler = require('./app/middleware/globalErrorHandler');
 
 //routes import
 const users = require('./app/routes/users'); 
+const chats = require('./app/routes/chats'); 
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(express.static(__dirname+"/client/"));
 
 //routes
 app.use('/api/v1/chat/users',users);
+app.use('/api/v1/chat/chats',chats);
 
 //express global error handler
 app.use(globalErrorHandler);
